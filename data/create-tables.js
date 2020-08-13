@@ -1,5 +1,4 @@
 const client = require('../lib/client');
-// const { getEmoji } = require('../lib/emoji.js');
 
 // async/await needs to run in a function
 run();
@@ -17,19 +16,21 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 );           
-                CREATE TABLE animals (
-                    id SERIAL PRIMARY KEY NOT NULL,
+                CREATE TABLE posters (
                     name VARCHAR(512) NOT NULL,
-                    cool_factor INTEGER NOT NULL,
+                    description VARCHAR(512) NOT NULL, 
+                    in_stock BOOLEAN NOT NULL,
+                    category INTEGER NOT NULL,
+                    price INTEGER NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
 
-    // console.log('create tables complete', getEmoji(), getEmoji(), getEmoji());
+    console.log('create tables complete');
   }
   catch(err) {
     // problem? let's see the error...
-    // console.log(err);
+    console.log(err);
   }
   finally {
     // success or failure, need to close the db connection
@@ -37,3 +38,4 @@ async function run() {
   }
 
 }
+

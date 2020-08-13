@@ -40,3 +40,4 @@ const authRoutes = createAuthRoutes({
     }
 });
 ```
+

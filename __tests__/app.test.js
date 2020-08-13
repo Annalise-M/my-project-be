@@ -20,31 +20,40 @@ describe('app routes', () => {
     return client.end(done);
   });
 
-  test('returns animals', async() => {
+  test('returns posters', async() => {
 
     const expectation = [
       {
-        'id': 1,
-        'name': 'bessie',
-        'coolfactor': 3,
-        'owner_id': 1
+        id: 'poster-2',
+        name: 'Metamorphesis',
+        image: 'BM_2019_poster.jpg',
+        description: 'Burning Man: Metamorphesis 2019',
+        in_stock: false,
+        category: 2019,
+        price: 12.00
       },
       {
-        'id': 2,
-        'name': 'jumpy',
-        'coolfactor': 4,
-        'owner_id': 1
+        id: 'poster-3',
+        name: 'I, Robot',
+        image: 'BM_2018_poster.jpg',
+        description: 'Burning Man: I, Robot 2018',
+        in_stock: true,
+        category: 2018,
+        price: 12.00
       },
       {
-        'id': 3,
-        'name': 'spot',
-        'coolfactor': 10,
-        'owner_id': 1
-      }
+        id: 'poster-4',
+        name: 'Radical Ritual',
+        image: 'BM_2017_poster.jpg',
+        description: 'Burning Man: Radical Ritual 2017',
+        in_stock: true,
+        category: 2017,
+        price: 12.00
+      },
     ];
 
     const data = await fakeRequest(app)
-      .get('/animals')
+      .get('/posters')
       .expect('Content-Type', /json/)
       .expect(200);
 
