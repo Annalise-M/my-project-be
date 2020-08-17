@@ -6,15 +6,11 @@ const app = require('./lib/app');
 
 const PORT = process.env.PORT || 7890;
 
+
 app.listen(PORT, () => {
-
+  // eslint-disable-next-line no-console
   console.log(`Started on ${PORT}`);
-
 });
-
-
-
-
 
 
 // app.get('/posters', async(req, res) => {
@@ -78,10 +74,6 @@ app.listen(PORT, () => {
 // });
 
 
-// app.listen(PORT, () => {
-//   // eslint-disable-next-line no-console
-//   console.log(`Started on ${PORT}`);
-// });
 
 // module.exports = app;
 
