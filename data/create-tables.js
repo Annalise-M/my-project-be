@@ -16,19 +16,18 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 );           
-                CREATE TABLE brands (
+                CREATE TABLE categories (
                   id SERIAL PRIMARY KEY NOT NULL,
-                  name VARCHAR(256) NOT NULL,
+                  year VARCHAR(256) NOT NULL
                 );
                 CREATE TABLE posters (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     description VARCHAR(512) NOT NULL, 
                     in_stock BOOLEAN NOT NULL,
-                    category INTEGER NOT NULL,
                     price INTEGER NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id),
-                    brand_id INTEGER NOT NULL REFERENCES brands(id)
+                    categories_id INTEGER NOT NULL REFERENCES categories(id)
             );
         `);
 

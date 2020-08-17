@@ -2,12 +2,12 @@ const client = require('../lib/client');
 // import our seed data:
 const posters = require('./posters.js');
 const usersData = require('./users.js');
-const categoriesData = require('./posters-categories.js');
+const categoriesData = require('./categories.js');
 
 
 run();
 
-// async function run() {
+async function run() {
 
   try {
     await client.connect();
@@ -19,14 +19,14 @@ run();
                       VALUES ($1, $2)
                       RETURNING *;
                       `,
-          [user.email, user.hash]);
-        })
-      );
-
+        [user.email, user.hash]);
+      })
+    );
     const user = users[0].rows[0];
     
+    console.log(categoriesData, 'HEYYYYYY YOUUUUUUU GUYSSSSSS');
     await Promise.all(
-      categoriesData(category => {
+      categoriesData.map(category => {
         return client.query(`
           INSERT INTO categories (year)
           VALUES ($1);
@@ -54,5 +54,5 @@ run();
     client.end();
   }
     
-// }
+}
 
