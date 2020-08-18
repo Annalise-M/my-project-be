@@ -9,3 +9,4 @@ export function fetchGuitars() {
 export function fetchGuitar(id) {
   return request.get(`${URL}/posters/${id}`);
 }
+
