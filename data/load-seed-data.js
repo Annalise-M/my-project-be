@@ -24,7 +24,7 @@ async function run() {
     );
     const user = users[0].rows[0];
     
-    console.log(categoriesData, 'HEYYYYYY YOUUUUUUU GUYSSSSSS');
+    
     await Promise.all(
       categoriesData.map(category => {
         return client.query(`
